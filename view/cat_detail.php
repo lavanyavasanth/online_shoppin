@@ -7,6 +7,4 @@
           echo "<div id='bodyleft'><ul>";cat_detail();echo"</ul></div>";
 //          include("pages/bodyleft.php");    
           include("pages/footer.php");
-
-
       ?> 
