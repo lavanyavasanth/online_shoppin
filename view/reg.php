@@ -1,7 +1,10 @@
 <?php 
     include("pages/links.php");
     include("pages/header.php");   
-    include("pages/navbar.php");       
+    include("pages/navbar.php"); 
+
+
+
 ?>
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
