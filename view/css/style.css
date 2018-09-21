@@ -1,0 +1,433 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: verdana, Geneva, sans-serif;
+    border: 0;
+}
+
+.row{
+    width: 101%;
+    background-color: beige;
+}
+.row > #bodyleft{
+    background: #fff;
+    height: auto;
+    border-radius: 3px;
+    border-right: 1px solid #e6e6e6;    
+    float: left;
+}
+#slider h2{
+    background: #dc3545;
+    height: 40px;
+    text-align: center;
+    color: #fff;
+    border-radius: 3px;
+    text-shadow: 5px 5px 5px #000;
+    box-shadow: 3px 3px 3px #000;
+}
+#bodyleft ul{
+    list-style-type: none;
+    padding-bottom: 1.5%;
+    
+}
+#bodyleft ul li{
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-left: 1%;
+    float: left;
+    width: 31%;
+    min-height: 350px;
+    border: 2px solid #e6e6e6;
+}
+#bodyleft ul li:hover{
+    color: #dc3545;
+}
+#bodyleft ul li a{
+    text-decoration: none;
+    color: #2e2e2e;
+    display: block;
+    
+}
+#pro_img{
+    width: 35%;
+    height: 500px;
+    background: #fff;
+    float: left;
+}
+#pro_img img{
+    width: 100%;
+    height: 450px;
+    margin-left: 5px;
+}
+#pro_fea{
+    width: 65%;
+    padding: 1%;
+    box-sizing: border-box;
+    height: 500px;
+    background: #fff;
+    float: left;
+}
+#pro_fea h3{
+    margin-top: 2px;
+    text-align: center;
+    height: 35px;
+    border-bottom: 1px solid #e6e6e6;
+}
+#pro_fea ul{
+    margin-top: 30px;
+    margin-left: 40px;
+}
+#pro_fea ul li{
+    height: 25px;
+    list-style-type: none;
+}
+#pro_fea h4{
+    margin-top: 30px;
+    margin-top: 20px;
+}
+#buy_now{
+    width: 120px;
+    height: 35px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #400040;
+}
+#buy_now:hover{
+    background: #dc3545;
+    color: #fff;
+}
+#sim_pro{
+    background: #fff;
+    width: 100%;
+    height: 350px;
+    margin-left: 5px;
+}
+#sim_pro h3{
+    background: #dc3545;
+    color: #fff;
+    text-align: center;
+}
+#sim_pro ul{
+    list-style-type: none;
+}
+#sim_pro ul li{
+    margin-top: 10px;
+    width: 180px;
+    float: left;
+    margin-left: 20px;
+    border: 1px solid #fff;
+}
+#sim_pro ul li:hover{
+    border: 1px solid #400040;
+    border-radius: 3px;
+}
+#sim_pro ul li a{
+    text-decoration: none;
+    color: #000;
+}
+#sim_pro ul li a img{
+    width: 178px;
+    height: 250px;
+}
+#sim_pro ul li a p{
+    text-align: center;
+}
+#pro_btn{
+     width: 30%;
+    height: 30px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #400040;
+    font-weight: bolder;
+}
+#pro_btn:hover{
+    background: #dc3545;
+}
+#pro_btn:hover a{
+    color: #fff;
+}
+div.dropdown-menu.show a{
+    float: left;
+    padding: 12px;
+    color: #555;
+    
+}
+
+#bodyleft ul li a h4{
+    text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-top: 5px;
+}
+#bodyleft ul li a img{
+    width:100%;
+    height: 280px;
+    margin-bottom: 10px;
+}
+#bodyright h3{
+    background: #dc3545;
+    height: 40px;
+    text-align: center;
+    color: #fff;
+    border-radius: 3px;
+    text-shadow: 5px 5px 5px #000;
+    box-shadow: 3px 3px 3px #000;
+}
+.row > #bodyright{
+    background: #fff;
+    height: 500px;
+    border-radius: 3px;
+    border-left: 1px solid #e6e6e6;
+    float: left;
+/*
+    margin-left: -2%;
+    padding-left: 3%;
+*/
+}
+
+#bodyleft h3{
+    line-height: 40px;
+    border-radius: 3px;
+    height: 40px;
+    background: #dc3545;
+    color: #fff;
+    padding-left: 5%;
+    text-align: center;
+    text-shadow: 5px 5px 5px #000;
+    box-shadow: 3px 3px 3px #000;
+}
+/*****************************bootstrap log & reg***********************/
+.card-container.card {
+    max-width: 350px;
+    padding: 40px 40px;
+}
+
+.btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+/*
+ * Card component
+ */
+.card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin {
+    /*background-color: #4d90fe; */
+    background-color: rgb(104, 145, 162);
+    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+    background-color: rgb(12, 97, 33);
+}
+
+.forgot-password {
+    color: rgb(104, 145, 162);
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+    color: rgb(12, 97, 33);
+}
+.lastname{
+	 margin-left: 1px;
+     font-family: sans-serif;
+     font-size: 14px;
+     color: white;
+     margin-top: 10px;
+}
+.firstname{
+	 margin-left: 1px;
+     font-family: sans-serif;
+     font-size: 14px;
+     color: white;
+     margin-top: 5px;
+}
+#lname{
+	 margin-top:5px;
+}
+/*---for heading-----*/
+.heading{
+	 text-decoration:bold;
+	 text-align : center;
+	 font-size:30px;
+	 color:#F96;
+	 padding-top:10px;
+}
+/*-------for email----------*/
+  /*------label----*/
+#email{
+	  margin-top: 5px;
+}
+/*-----------for Password--------*/
+     /*-------label-----*/
+.mail{
+	 margin-left: 44px;
+     font-family: sans-serif;
+     color: white;
+     font-size: 14px;
+     margin-top: 13px;
+}
+.pass{
+	 color: white;
+     margin-top: 9px;
+     font-size: 14px;
+     font-family: sans-serif;
+     margin-left: 6px;
+     margin-top: 9px;
+}
+#password{
+ margin-top: 6px;
+}
+/*------------for phone Number--------*/
+      /*----------label--------*/
+.pno{
+	 font-size: 18px;
+     margin-left: -13px;
+     margin-top: 10px;
+     color: #ff9;
+	
+}	
+
+/*--------------for Gender---------------*/
+     /*--------------label---------*/
+.gender {
+	 color: white;
+     font-family: sans-serif;
+     font-size: 14px;
+     margin-left: 28px;
+     margin-top: 8px;
+}
+
+     /*---------- for Input type--------*/
+.col-xs-4.male{
+	 color: white;
+     font-size: 13px;
+     margin-top: 9px;
+     padding-bottom: 16px;
+}
+.col-xs-4.female {
+     color: white;
+     font-size: 13px;
+     margin-top: 9px;
+     padding-bottom: 16px;
+	 padding-right: 95px;
+}	
+/*------------For submit button---------*/
+.sbutton{
+	 color: white;
+     font-size: 20px;
+     border: 1px solid white;
+     background-color: #080808;
+     width: 32%;
+     margin-left: 41%;
+     margin-top: 16px;
+	 box-shadow: 0px 2px 2px 0px white;
+  	   
+   }
+.btn.btn-warning:hover {
+    box-shadow: 2px 1px 2px 3px #99ccff;
+	background:#5900a6;
+	color:#fff;
+	transition: background-color 1.15s ease-in-out,border-color 1.15s ease-in-out,box-shadow 1.15s ease-in-out;
+	
+}	 
+	  
+
