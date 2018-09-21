@@ -1,5 +1,6 @@
 
        <?php 
+//testing git
           include("pages/links.php");
 //          include("../control/display_db.php");
           include("pages/header.php");   
