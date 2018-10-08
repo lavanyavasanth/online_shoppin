@@ -33,6 +33,10 @@
 							<label for="verifypass">Role</label>
 							<input type="text" id="role" class="form-control" name="role" placeholder="" autocomplete="off">
                         </div>
+                        <div class="form-group">
+							<label for="verifypass">DOB</label>
+							<input type="date" id="dob" class="form-control" name="dob" placeholder="" autocomplete="off">
+                        </div>
 						<div class="form-group text-center">
 							<input type="submit" class="btn btn-primary btn-lg" id="submitbtn" name="submit" value="signup">
                         </div>

@@ -1,6 +1,23 @@
 # online_shopping
 Readme.txt
 _______________________________________________________________________
+Description:
+Lavanya's Boutique provide tailor-made designer dresses stitched as per the measurements. To purchase any product, customer has to register to the website. Size Chart and Measurement form links are at the left bottom of the page, were customers can fill in the form and sends email to us. 
+
+Business Rules: 
+•	Before purchasing any product, customer has to register to the website. 
+•	To register, customer age should be 18years or above. 
+•	Customer cannot purchase more than 3 products in a category.  
+•	Stitched products are customized to your measurements, cannot be resold or reused and hence will not be eligible for returns or refunds.
+
+Install:
+•	Server- localhost Mac: (MAMP) Windows: (XAMPP,WAMP). 
+•	Create a database. 
+•	Import online_store.sql database file. 
+•	Press F12 and check for errors.  
+  
+
+
 Database:
 
 Server: localhost

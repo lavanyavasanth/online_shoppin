@@ -79,3 +79,23 @@ function testLocalStorageData() {
     localStorage.setItem("PROFILE_NAME", "César Izquierdo Tello");
     localStorage.setItem("PROFILE_REAUTH_EMAIL", "oneaccount@gmail.com");
 }
+
+
+    
+
+$(document).ready(function(){
+    load_product();
+
+    function load_product()
+    {
+                  $.ajax({
+       url:"../../control/display_db.php",
+       method:"POST",
+       success:function(data)
+       {
+        $('#display_item').html(data);
+       }
+      });
+    }
+});
+

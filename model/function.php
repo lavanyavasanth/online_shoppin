@@ -354,17 +354,18 @@ function testUserInput($data){
         
 }
 
-function addUser($firstname, $lastname, $email, $role, $username, $password){
+function addUser($firstname, $lastname, $email, $role, $dob, $username, $password){
  	global $conn;
     try
     {
     $conn->beginTransaction();
-    $sql = "INSERT INTO user(FirstName, LastName, Email, Role) VALUES (:firstname, :lastname, :email, :role)";
+    $sql = "INSERT INTO user(FirstName, LastName, Email, Role, dob) VALUES (:firstname, :lastname, :email, :role, :dob)";
  	$stmt = $conn->prepare($sql);
  	$stmt->bindValue(':firstname', $firstname);
  	$stmt->bindValue(':lastname', $lastname);
     $stmt->bindValue(':email', $email);
  	$stmt->bindValue(':role', $role);
+    $stmt->bindValue(':dob', $dob);
  	$result = $stmt->execute();
        
         
@@ -394,5 +395,5 @@ function userLoggedIn() {
     } else {
         return false;    
     }
-}  
+} 
 ?>

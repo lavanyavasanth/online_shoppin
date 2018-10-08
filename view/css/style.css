@@ -6,7 +6,7 @@
 }
 
 .row{
-    width: 101%;
+    width: 80%;
     background-color: beige;
 }
 .row > #bodyleft{
@@ -19,6 +19,7 @@
 #slider h2{
     background: #dc3545;
     height: 40px;
+    width: auto;
     text-align: center;
     color: #fff;
     border-radius: 3px;
@@ -195,6 +196,43 @@ div.dropdown-menu.show a{
     text-align: center;
     text-shadow: 5px 5px 5px #000;
     box-shadow: 3px 3px 3px #000;
+}
+.bodyright ul{
+    list-style-type: none;
+}
+.bodyright h3{
+    padding-top: 4px;
+}
+.bodyright ul li{
+    height: 35px;
+    width: 100%;
+    line-height: 35px;
+    padding-left: 2%;
+    text-align: center;
+}
+.bodyright ul li a{
+    text-decoration: none;
+    color: #2e2e2e;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+.bodyright ul li a:hover{
+    text-decoration: underline;
+    color:  #dc3545;
+    font-weight: bolder;
+}
+#search #search_box{
+    width: 500px;
+    height: 30px;
+    padding-left: 20px;
+    color: #000;
+}
+#search #search_btn{
+    width: 70px;
+    height: 30px;
+    background: #dc3545;
+    color: #fff;
 }
 /*****************************bootstrap log & reg***********************/
 .card-container.card {
@@ -428,6 +466,34 @@ div.dropdown-menu.show a{
 	color:#fff;
 	transition: background-color 1.15s ease-in-out,border-color 1.15s ease-in-out,box-shadow 1.15s ease-in-out;
 	
-}	 
+}	
+@media screen and (max-width: 600px){
+    .row #bodyleft{
+        width: 100%;
+    }
+    #bodyleft ul li{
+        width: 100%;
+    }
+/*
+    #search #search_box{
+        width: 100%;
+        padding-left: 100px;
+    }
+    #search #search_btn{
+        width: 100%;        
+    }
+*/
+/*
+    input{
+        width: 100%;
+    }
+*/
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
 	  
 

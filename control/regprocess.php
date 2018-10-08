@@ -9,12 +9,13 @@ require("../model/function.php");
         $lastname = !empty($_POST['lastname'])? testUserInput(($_POST['lastname'])):null;
         $email = !empty($_POST['email'])? testUserInput(($_POST['email'])):null;
         $role = !empty($_POST['role'])? testUserInput(($_POST['role'])):null;
+        $dob = !empty($_POST['dob'])? testUserInput(($_POST['dob'])):null;
         $username = !empty($_POST['username'])? testUserInput(($_POST['username'])):null;
         $password = password_hash($mypass, PASSWORD_DEFAULT);    
 
         try{
-            $querySuccess = addUser($firstname, $lastname, $email, $role, $username, $password);
-           header('location:../view/login.php'); if(empty($firstname)||empty($lastname)||empty($email)||empty($role)||empty($username)||empty($mypass)){
+            $querySuccess = addUser($firstname, $lastname, $email, $role, dob, $username, $password);
+           header('location:../view/login.php'); if(empty($firstname)||empty($lastname)||empty($email)||empty($role)||empty($dob)||empty($username)||empty($mypass)){
              header('location:../view/reg.php?reg=empty');
                 exit();       
             }
@@ -32,7 +33,6 @@ require("../model/function.php");
                 }
                     else{
                         header('location:../view/login.php');
-                        
                     }
                 }
 

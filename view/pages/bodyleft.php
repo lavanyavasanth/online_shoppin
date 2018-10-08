@@ -1,8 +1,8 @@
 <!--<div class="container-fluid">-->
 <div class="row" style="width: 100%;">
-    <div class = "col-md-8" id="bodyleft" style="width: 800px;">
+    <div class = "col-md-8" id="bodyleft">
         <?php if(!isset($_GET['cat_id'])){ ?>
-        <div id="slider" style="width: 880px">
+        <div id="slider">
             <h2>New Arrival</h2>
             <?php
                 $files = scandir("../view/img/slider/");

@@ -13,19 +13,37 @@
 	            <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
 	            <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
 	            <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-</div>
+        </div>
+        <div>
+                <a href="../view/policy.php" style="float: left;" class="policy">Refund Policy</a>
+                <a href="../view/termCon.php" style="float: left;" class="policy">Terms and Conditions</a>
+                <a href="../view/priPolicy.php" style="float: left;" class="policy">Privacy Policy</a>
+            
+        </div>
     
     
-<!--
-        <div class="message">
-        <?php 
-            include("../control/loginprocess.php");
-            if(!$message="") { 
-                echo $message; 
-            }
-        ?>
-    </div>
--->
+<?php
+//    session_start();
+    echo "<div>";
+    if(isset($_SESSION['error'])){
+        echo"<div>{$_SESSION['error']}</div>";
+        unset($_SESSION['error']);
+    }
+    if(isset($_SESSION['message'])){
+        echo"<div>{$_SESSION['message']}</div>";
+        unset($_SESSION['message']);
+    }
+    echo "</div>";
+    echo "<div>";
+    print_r($_SESSION);
+    echo "</div><div>";
+    print_r($_GET);
+    echo "</div><div>";
+    print_r($_POST);
+    echo"</div>";
+?>
+
+
     <hr>
 </div>
 

@@ -5,7 +5,7 @@
         <div class="collapse navbar-collapse abc" id="collapse_target">
         <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="index.php" >Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">New Arrivals</a></li>
+<!--        <li class="nav-item"><a class="nav-link" href="cat_detail.php?new_arr">New Arrivals</a></li>-->
         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#" >Catagory</a>
         <div class="dropdown-menu" aria-labelledby="dropdown_target">
             <a class="dropdown-item" ><?php 

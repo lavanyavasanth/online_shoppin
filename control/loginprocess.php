@@ -15,25 +15,29 @@ $rows = $stmt -> fetch();
 $user = $rows['Username'];
 $pass = $rows['Password'];
 $role = $rows['Role'];
-
+session_start();
 if($username == $user && password_verify($password, $pass) ){
-    session_start();
-    $_SESSION["username"] = $username;
-	$_SESSION["password"] = $password;
+
+    
+    
+    $_SESSION['username'] = $username;
+	$_SESSION['password'] = $password;
     $_SESSION['role'] = $role;
 
     if ($role == "Admin") {
             header('location:../view/admin/index.php');
-
+            $_SESSION['message'] = "login successful";
     } 
-    else {
-              
+    else {              
         	  header('location:../view/index.php');
+              $_SESSION['message'] = "login successful";             
     }
     
 } else {
     // Handle if they don't have an account.
+    $_SESSION['error'] = "login failed";
     header('location:../view/login.php');
+     
 }
 }
 
