@@ -14,10 +14,10 @@
 	            <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
 	            <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
         </div>
-        <div>
-                <a href="../view/policy.php" style="float: left;" class="policy">Refund Policy</a>
-                <a href="../view/termCon.php" style="float: left;" class="policy">Terms and Conditions</a>
-                <a href="../view/priPolicy.php" style="float: left;" class="policy">Privacy Policy</a>
+        <div class="policy" style="float: right;">
+                <a href="../view/policy.php" style="padding:10px;">Refund Policy</a>
+                <a href="../view/termCon.php" style="padding:10px;">Terms and Conditions</a>
+                <a href="../view/priPolicy.php" style="padding:10px;">Privacy Policy</a>
             
         </div>
     
