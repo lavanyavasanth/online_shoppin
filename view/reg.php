@@ -11,34 +11,40 @@
                     <form role="Form" method="POST" action="../control/regprocess.php" accept-charset="UTF-8">
 						<div class="form-group">
 							<label for="username">Username</label>
-							<input type="text" id="uname" class="form-control" name="username" placeholder="" autocomplete="off">
+							<input type="text" id="uname" class="form-control" name="username" placeholder="" autocomplete="off" pattern="[A-Za-z]{1,}">
+                            <div id= "msg1" style="color:red; font-weight:bold"></div>
                         </div>
                         <div class="form-group">
 							<label for="password">Password</label>
-							<input type="password" id="pname" class="form-control" name="password" placeholder="" autocomplete="off">
+							<input type="password" id="pname" class="form-control" name="password" placeholder="" autocomplete="off" pattern="[A-Za-z]{1,}[0-9]{1}">
+                            <div id= "msg2" style="color:red; font-weight:bold"></div>
                         </div>
 						<div class="form-group">
 							<label for="firstname">FirstName</label>
-							<input type="text" id="fname" class="form-control" name="firstname" placeholder="" autocomplete="off">
+							<input type="text" id="fname" class="form-control" name="firstname" placeholder="" autocomplete="off" pattern="[A-Za-z]{1,}">
+                            <div id= "msg3" style="color:red; font-weight:bold"></div>
                         </div>
 						<div class="form-group">
 							<label for="lastname">LastName</label>
-							<input type="text" id="lname" class="form-control" name="lastname" placeholder="" autocomplete="off">
+							<input type="text" id="lname" class="form-control" name="lastname" placeholder="" autocomplete="off" pattern="[A-Za-z]{1,}">
+                            <div id= "msg4" style="color:red; font-weight:bold"></div>
                         </div>
                         <div class="form-group">
 							<label for="email">Email</label>
-							<input type="text" id="email" class="form-control" name="email" placeholder="" autocomplete="off">
+							<input type="text" id="email" class="form-control" name="email" placeholder="" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                            <div id= "msg5" style="color:red; font-weight:bold"></div>
                         </div>
 						<div class="form-group">
 							<label for="verifypass">Role</label>
-							<input type="text" id="role" class="form-control" name="role" placeholder="" autocomplete="off">
+							<input type="text" id="role" class="form-control" name="role" placeholder="" autocomplete="off" pattern="[A-Za-z]{1,}">
+                            <div id= "msg6" style="color:red; font-weight:bold"></div>
                         </div>
                         <div class="form-group">
 							<label for="verifypass">DOB</label>
-							<input type="date" id="dob" class="form-control" name="dob" placeholder="" autocomplete="off">
+							<input type="text" class="datepicker form-control" name="dob" placeholder="" autocomplete="off">
                         </div>
 						<div class="form-group text-center">
-							<input type="submit" class="btn btn-primary btn-lg" id="submitbtn" name="submit" value="signup">
+							<input type="button" class="btn btn-primary btn-lg" id="submitbtn" name="submit" value="signup" onclick="errmsg()">
                         </div>
                     </form>
 <?php

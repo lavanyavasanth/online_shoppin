@@ -13,7 +13,8 @@ Business Rules:
 Install:
 •	Server- localhost Mac: (MAMP) Windows: (XAMPP,WAMP). 
 •	Create a database. 
-•	Import online_store.sql database file. 
+•	Import online_store.sql database file.
+•	Unzip the folder and Point browser to the root folder of       this pack.
 •	Press F12 and check for errors.  
   
 
@@ -49,9 +50,8 @@ GITHUB URL: https://github.com/lavanyavasanth/online_shoppin
 ----------------------------------------------------------------------------
 
 Issues:
-
+Style the datepicker
 Products cannot be added to shopping cart
-Search option is not fixed
 No contact us page & new arrival page
 forgot password, remember me, social media links are empty
 Need to add measurement form for user to fill.

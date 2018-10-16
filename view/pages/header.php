@@ -1,6 +1,8 @@
 <?php
     session_start();
     include('../model/function.php');
+    include('../control/display_db.php');
+
 ?> 
 <div class="container-fluid">
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top" style="font-weight: bolder;">
@@ -22,10 +24,9 @@
 <!--        <li class="nav-item"><a class="nav-link" href="#"><span class="glyphicon glyphicon-save"></span><strong>Order History</strong></a></li>-->
             
             
-        <li class="nav-item" id="cart_btn"><a id = "cart-popover" class="nav-link" data-placement = "bottom" title="shopping cart">
+        <li class="nav-item" id="cart_btn"><a id = "cart-popover" class="nav-link" data-placement = "bottom" title="shopping cart" href="../view/cart.php">
             <span class="glyphicon glyphicon-shopping-cart"></span><strong>Cart</strong>
-            <span class="badge"></span>
-            <span class="total_price">$0.00</span>
+            <span class="badge"> <?php echo cart_count(); ?></span>
             </a></li>
             
             <?php
@@ -42,22 +43,9 @@
             </form>
         </div>
     </nav>
-    <div id="popover_content_wrapper" style="display: none">
-    <span id="cart_details"></span>
-    <div align="right">
-     <a href="#" class="btn btn-primary" id="check_out_cart">
-     <span class="glyphicon glyphicon-shopping-cart"></span> Check out
-     </a>
-     <a href="#" class="btn btn-default" id="clear_cart">
-     <span class="glyphicon glyphicon-trash"></span> Clear
-     </a>
-    </div>
-   </div>
+   
 
-   <div id="display_item">
-
-
-   </div>
+   
     <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0px; background: #dc3545;">
         <div class="container">
         <h1>Lavanya's Boutique</h1>

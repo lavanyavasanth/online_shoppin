@@ -18,7 +18,7 @@
                 <a href="../view/policy.php" style="padding:10px;">Refund Policy</a>
                 <a href="../view/termCon.php" style="padding:10px;">Terms and Conditions</a>
                 <a href="../view/priPolicy.php" style="padding:10px;">Privacy Policy</a>
-            
+                <a href="/online_shopping/downloadfile/MeasurementForm.xlsx" style="padding:10px;">Measurement Form</a>
         </div>
     
     

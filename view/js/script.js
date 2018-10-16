@@ -79,23 +79,51 @@ function testLocalStorageData() {
     localStorage.setItem("PROFILE_NAME", "César Izquierdo Tello");
     localStorage.setItem("PROFILE_REAUTH_EMAIL", "oneaccount@gmail.com");
 }
+ $(document).ready(function(){
+     $('.datepicker').datepicker();           
 
-
-    
-
-$(document).ready(function(){
-    load_product();
-
-    function load_product()
+    });
+function errmsg(){
+    var uname = document.getElementById('uname');
+    var pname = document.getElementById('pname');
+    var fname = document.getElementById('fname');
+    var lname = document.getElementById('lname');
+    var email = document.getElementById('email');
+    var role = document.getElementById('role');
+    if(!uname.checkValidity()){
+        document.getElementById("msg1").innerHTML = uname.validationMessage;
+    }else
     {
-                  $.ajax({
-       url:"../../control/display_db.php",
-       method:"POST",
-       success:function(data)
-       {
-        $('#display_item').html(data);
-       }
-      });
+        document.getElementById("msg1").innerHTML="";
     }
-});
-
+    if(!pname.checkValidity()){
+        document.getElementById("msg2").innerHTML = pname.validationMessage;
+    }else
+    {
+        document.getElementById("msg2").innerHTML="";
+    }
+    if(!fname.checkValidity()){
+        document.getElementById("msg3").innerHTML = fname.validationMessage;
+    }else
+    {
+        document.getElementById("msg3").innerHTML="";
+    }
+    if(!lname.checkValidity()){
+        document.getElementById("msg4").innerHTML = lname.validationMessage;
+    }else
+    {
+        document.getElementById("msg4").innerHTML="";
+    }
+    if(!email.checkValidity()){
+        document.getElementById("msg5").innerHTML = email.validationMessage;
+    }else
+    {
+        document.getElementById("msg5").innerHTML="";
+    }
+    if(!role.checkValidity()){
+        document.getElementById("msg6").innerHTML = role.validationMessage;
+    }else
+    {
+        document.getElementById("msg6").innerHTML="";
+    }
+}

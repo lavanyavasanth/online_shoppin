@@ -9,7 +9,7 @@
         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#" >Catagory</a>
         <div class="dropdown-menu" aria-labelledby="dropdown_target">
             <a class="dropdown-item" ><?php 
-                include("../control/display_db.php");
+//                include("../control/display_db.php");
                 echo all_cat(); 
                 ?></a>
 <!--

@@ -14,17 +14,134 @@ function add_cart(){
     include("../model/db.php");
     if(isset($_POST['cart_btn'])){
         $pro_id = $_POST['pro_id'];
-//        $quantity = $_POST['quantity'];
         $ip = getIp();
-        $add_cart = $conn->prepare("insert into cart(pro_id, quantity,ip_add) values('$pro_id','1','$ip')");
-//        $add_cart->bindValue(":pro_id", $pro_id);
-//        $add_cart->bindValue(":ip", $ip);
-       
-        if($add_cart->execute()){
-            echo"<script>window.open('../view/admin/pages/index.php','_self');</script>";
-        }else{
-            echo"<script>alert('Try Again!!!');</script>";
+        $check_cart = $conn->prepare("select * from carts where pro_id='$pro_id' AND ip_add='$ip'");
+        $check_cart->execute();
+        $row_check = $check_cart->rowCount();
+        if($row_check==1){
+            echo"<script>alert('Product already added to your cart!!!');</script>";
+        }else
+        {
+            $add_cart = $conn->prepare("insert into carts(pro_id, quantity,ip_add) values('$pro_id','1','$ip')");
+            $add_cart->bindValue(":pro_id", $pro_id);
+            $add_cart->bindValue(":ip", $ip);
+
+            if($add_cart->execute()){
+                echo"<script>window.open('../view/index.php','_self');</script>";
+            }else{
+                echo"<script>alert('Try Again!!!');</script>";
+            }
         }
+    }
+}
+function cart_count(){
+    include("../model/db.php");
+    $ip = getIp();
+    $get_cart_item = $conn->prepare("select * from carts where ip_add='$ip'");
+    $get_cart_item->execute();
+    $count_cart = $get_cart_item->rowCount();
+    echo $count_cart;
+}
+function cart_display(){
+    include("../model/db.php");
+    $ip = getIp();
+    $get_cart_item = $conn->prepare("select * from carts where ip_add = '$ip'");
+    $get_cart_item->setFetchMode(PDO:: FETCH_ASSOC);
+    $get_cart_item->execute();
+    $cart_empty = $get_cart_item->rowCount();
+    $net_total = 0;
+    if($cart_empty == 0){
+        echo "<center><h2>Cart is Empty!!!!!</h2></center>";
+    }else{
+        if(isset($_POST['up_qty'])){
+            $qty = $_POST['quantity'];
+            foreach($qty as $key=>$value){
+                $update_qty = $conn->prepare("update carts set quantity = '$value' where cart_id = '$key'");
+                $res = $update_qty->execute();
+                echo $res;
+//                if($update_qty->execute()){
+//                   echo "<script>window.open('cart.php','_self');</script>"; 
+//                }
+            }
+        }
+        echo"
+        <table id='cart' class='table table-hover table-condensed'>
+        <thead>
+            <tr>
+                <th style='width:10%'>Image</th>
+				<th style='width:40%'>Product</th>
+				<th style='width:10%'>Price</th>
+				<th style='width:8%'>Quantity</th>
+				<th style='width:22%' class='text-center'>Subtotal</th>
+				<th style='width:10%'></th>
+            </tr>
+        </thead>
+        ";
+        while($row=$get_cart_item->fetch()):
+            $pro_id = $row['pro_id'];
+            $get_pro = $conn->prepare("select * from products where pro_id = '$pro_id'");
+            $get_pro->setFetchMode(PDO:: FETCH_ASSOC);
+            $get_pro->execute();
+            $row_pro = $get_pro->fetch();
+            echo "
+                <tbody>
+                    <tr>
+                        <td data-th='Image'>
+                            <div class ='row'>
+                                <div class='col-sm-12 hidden-xs'><img src='../view/img/pro_img/".$row_pro['image']."' alt='prod' class='img-responsive'/></div>
+                             </div>
+                        </td>
+                        <td data-th='Product'><strong>
+                            ".$row_pro['pro_name']."</strong><br><br>
+                                    <p>".$row_pro['description']."</p>
+
+                          </td>
+                          <td data-th='Price'>".$row_pro['price']."</td>
+                          <td data-th='Quantity' class='text-center'>
+                          <input type='text' name ='quantity[".$row['cart_id']."]' class='form-control text-center' value='".$row['quantity']."'><br><input type='submit' name ='up_qty' class='form-control text-center' value='save'>
+                          </td>
+                          <td data-th='Subtotal' class='text-center'>";
+                                $price = $row_pro['price'];
+                                $quantity = $row['quantity'];
+                                $sub_total = $price * $quantity;
+                                echo $sub_total;
+                                $net_total = $net_total + $sub_total;
+                          echo"</td>
+                          <td class='actions' data-th=''>
+                              <a href ='delete.php?delete_id=".$row_pro['pro_id']."' class='btn btn-danger btn-sm'><i class='fa fa-trash-o'></i></a>		
+                           </td>
+                       </tr>
+                    </tbody>
+
+
+
+
+            ";
+        endwhile;
+
+        echo "
+            <tfoot>
+                <tr>
+                    <td><a href='../view/index.php' class='btn btn-warning'><i class='fa fa-angle-left'></i> Continue Shopping</a></td>
+                    <td colspan='3' class='hidden-xs'></td>
+                    <td class='hidden-xs text-center'><strong>Net Amount: $net_total </strong></td>
+                    <td colspan='2' class='hidden-xs'></td>
+                    <td><a href='#' class='btn btn-success btn-block'>Checkout <i class='fa fa-angle-right'></i></a></td>
+                </tr>
+            </tfoot>
+        ";
+    }
+}
+function delete_cart_item(){
+    include("../model/db.php");
+    if(isset($_GET['delete_id'])){
+        $pro_id = $_GET['delete_id'];
+        
+        $delete_pro = $conn->prepare("delete from carts where pro_id = '$pro_id'");
+        if($delete_pro->execute()){
+            echo "<script>alert('product deleted succesfully');</script>";
+                echo "<script>window.open('cart.php','_self');</script>";
+            } 
     }
 }
 function salwar(){
@@ -76,6 +193,7 @@ function lehenga(){
                 <center>
                     <button id='pro_btn'><a href = '../view/pro_detail.php?pro_id=".$row_pro['pro_id']."'>View</a></button>
 
+                      <input type = 'hidden' name='pro_id' value='".$row_pro['pro_id']."'>
                     <button id='pro_btn' name = 'cart_btn'>Cart</button>
                 </center>
             </a>
@@ -104,6 +222,7 @@ function saree(){
                 <center>
                     <button id='pro_btn'><a href = '../view/pro_detail.php?pro_id=".$row_pro['pro_id']."'>View</a></button>
                     
+                     <input type = 'hidden' name='pro_id' value='".$row_pro['pro_id']."'>
                     <button id='pro_btn' name = 'cart_btn'>Cart</button>
                 </center>
             </a>
@@ -132,6 +251,7 @@ function accessories(){
                 <center>
                     <button id='pro_btn'><a href = '../view/pro_detail.php?pro_id=".$row_pro['pro_id']."'>View</a></button>
                     
+                      <input type = 'hidden' name='pro_id' value='".$row_pro['pro_id']."'>
                     <button id='pro_btn' name = 'cart_btn'>Cart</button>
                 </center>
             </a>
@@ -159,15 +279,17 @@ function pro_detail(){
             </ul>
             <center>
                <form method = 'post'>
+                    <input type = 'hidden' name='pro_id' value='".$row_pro['pro_id']."'>
                     <button id='buy_now' name = 'buy_now'>Buy Now</button>
-                    <button id='buy_now' name = 'cart'>Add to Cart</button>
+                    <button id='buy_now' name = 'cart_btn'>Add to Cart</button>
                 </form>
             </center>
         </div>
         <div id='sim_pro'>
             <h3>Similar Products</h3>
             <ul>";
-                $sim_pro = $conn->prepare("select * from products where cat_id='$cat_id' limit 0,5");
+                echo add_cart();
+                $sim_pro = $conn->prepare("select * from products where pro_id != $pro_id AND cat_id='$cat_id' limit 0,5");
                 $sim_pro->setFetchMode(PDO:: FETCH_ASSOC);
                 $sim_pro->execute();
                 while($row=$sim_pro->fetch()):
@@ -215,7 +337,7 @@ function cat_detail(){
                         <img src='../view/img/pro_img/".$row_cat ['image']."'>
                         <center>
                             <button id='pro_btn'><a href = '../view/pro_detail.php?pro_id=".$row_cat ['pro_id']."'>View</a></button>
-                            <button id='pro_btn'><a href = '#'>Cart</a></button>
+                            <button id='pro_btn' name = 'cart_btn'>Cart</button>
                         </center>
                     </a>
                   </li>";        
@@ -261,7 +383,7 @@ function sub_cat_detail(){
                         <img src='../view/img/pro_img/".$row_sub_cat ['image']."'>
                         <center>
                             <button id='pro_btn'><a href = '../view/pro_detail.php?pro_id=".$row_sub_cat ['pro_id']."'>View</a></button>
-                            <button id='pro_btn'><a href = '#'>Cart</a></button>
+                            <button id='pro_btn' name = 'cart_btn'>Cart</button>
                         </center>
                     </a>
                   </li>";        
@@ -303,7 +425,7 @@ function search(){
                 <img src='../view/img/pro_img/".$row['image']."'>
                 <center>
                     <button id='pro_btn'><a href = '../view/pro_detail.php?pro_id=".$row['pro_id']."'>View</a></button>
-                    <button id='pro_btn'><a href = 'cart.php'>Cart</a></button>
+                    <button id='pro_btn' name = 'cart_btn'>Cart</button>
                 </center>
             </a>
           </li>";  
