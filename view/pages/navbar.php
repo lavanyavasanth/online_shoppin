@@ -18,8 +18,9 @@
             <a class="dropdown-item">Accessories</a>
 -->
         </div>
-        </li>
+        </li>        
         <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+<!--        <li style="padding-left:900px;padding-top:16px;"><strong>Username:</strong> <?php  echo $_SESSION['username'];?></li>-->
         </ul>
         </div>
     </nav>

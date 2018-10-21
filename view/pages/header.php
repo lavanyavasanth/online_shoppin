@@ -13,8 +13,12 @@
         <div class="collapse navbar-collapse" id="navbarFour">
         <ul class="nav navbar-nav ml-auto">
 <!--        <li class="nav-item" id="search_btn"><a class="nav-link" href="#"><i class="fas fa-search"></i><strong>Search</strong></a></li>-->
-        <li class="nav-item"><a class="nav-link" href="reg.php"><span class="glyphicon glyphicon-arrow-right"></span><strong>Register</strong></a>
-        </li>
+        <?php
+        if(!userLoggedIn()){
+        echo'<li class="nav-item"><a class="nav-link" href="reg.php"><span class="glyphicon glyphicon-arrow-right"></span><strong>Register</strong></a>
+        </li>';
+        }
+        ?>
             <?php
                 if(!userLoggedIn()){
                     echo '<li class="nav-item"><a class="nav-link" href="login.php"><span class="glyphicon glyphicon-user"></span><strong>Login</strong></a></li>';
@@ -25,7 +29,7 @@
             
             
         <li class="nav-item" id="cart_btn"><a id = "cart-popover" class="nav-link" data-placement = "bottom" title="shopping cart" href="../view/cart.php">
-            <span class="glyphicon glyphicon-shopping-cart"></span><strong>Cart</strong>
+            <span class="glyphicon glyphicon-shopping-cart"></span><strong>Cart </strong>
             <span class="badge"> <?php echo cart_count(); ?></span>
             </a></li>
             
@@ -36,6 +40,7 @@
              ?>
         </ul>
         </div>
+        
         <div id="search">
             <form method="get" enctype="multipart/form-data" action="../view/search.php">
                 <input type="text" id="search_box" name="user_query" placeholder="search here...">

@@ -14,7 +14,8 @@ require("../model/function.php");
         $password = password_hash($mypass, PASSWORD_DEFAULT);    
 
         try{
-            $querySuccess = addUser($firstname, $lastname, $email, $role, dob, $username, $password);
+            $querySuccess = addUser($firstname, $lastname, $email, $role, $dob, $username, $password);
+            
            header('location:../view/login.php'); if(empty($firstname)||empty($lastname)||empty($email)||empty($role)||empty($dob)||empty($username)||empty($mypass)){
              header('location:../view/reg.php?reg=empty');
                 exit();       

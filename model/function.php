@@ -379,7 +379,7 @@ function addUser($firstname, $lastname, $email, $role, $dob, $username, $passwor
  	$stmt->bindValue(':password', $password);
     $stmt->bindValue('UserID', $lastUserid);
  	$stmt->execute();
-        
+     
     $conn->commit();
     }
  	
