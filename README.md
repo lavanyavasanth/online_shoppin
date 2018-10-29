@@ -28,7 +28,7 @@ PHPMyAdmin web link: http://localhost/phpmyadmin/index.php
 
 Internet access to connect
 
-Database name: online_store	 username:"root"		password:""	 Privilege: all
+Database name: test	 username:"root"		password:""	 Privilege: all
 
 Recommended browsers: Safari, Google Chrome, Firefox (For all devices)
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2018 at 11:24 AM
+-- Generation Time: Oct 26, 2018 at 03:35 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -19,8 +19,32 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `online_store`
+-- Database: `test`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carts`
+--
+
+CREATE TABLE `carts` (
+  `cart_id` int(10) NOT NULL,
+  `pro_id` int(10) NOT NULL,
+  `quantity` int(10) NOT NULL,
+  `ip_add` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`cart_id`, `pro_id`, `quantity`, `ip_add`) VALUES
+(17, 16, 1, '::1'),
+(18, 17, 1, '::1'),
+(19, 18, 1, '::1'),
+(20, 6, 1, '::1'),
+(22, 7, 1, '::1');
 
 -- --------------------------------------------------------
 
@@ -42,13 +66,12 @@ CREATE TABLE `login` (
 INSERT INTO `login` (`LoginID`, `Username`, `Password`, `UserID`) VALUES
 (11, 'abc', '$2y$10$oQFuvXuZDDl7R3g2LUCUX.Z19mZmNAw7QWfc3y6lAUVQjecbmElcy', 11),
 (12, 'lav', '$2y$10$CvCsDoNuk0HJyBcDIV0ZF.A3EibmtHyKBoFdd7Y1tcB/Q.KLprTiq', 12),
-(49, 'jsvnj', '$2y$10$iE7bME.vMvMTuFkXMBep6O6x9LqSlsN43bhYq/9ITq8KQt1950SDq', 49),
-(50, '12', '$2y$10$R2xMlvqQWkW5msE7T1iTneYCg/SFWTBhqxQURJMcpKf3MA6RUUTwa', 50),
-(51, 'peter', '$2y$10$CKS/BDR9COKj9ISt4Qd6oeWV1IthQnA7M92g2YYkWFuAxe/2MLdPy', 51),
-(52, 'smith', '$2y$10$Y9zEiXROfYojWUfsfyOESekZZIIWk1CMGYgrbXo2VSOSM5tZo8/aK', 52),
-(53, 'vini', '$2y$10$HL/zQL8oSFanl4o9aCC26OLyIzS1oEfiav1LQ7ApsLdV5JVAaZbEu', 53),
-(54, 'vmh', '$2y$10$TE9txAKzsuq7EwyTzgLD0eZrFGEeFD1BtxoIpyA6ehXrAtwgXY7e2', 54),
-(55, 'mmm', '$2y$10$0z/x8UCBVVli1eBHMT9LCevARIiGmNxw.Xk/i5ty6YoNifFKaP/pe', 55);
+(57, 'fly', '$2y$10$AbFCXKdHvrSn9B87RY6xOuKrPwYLgBZZ76GV6O8ehYkmo1vF6gngu', 57),
+(58, 'flip', '$2y$10$UWt845RU4/00UK284ejfq.KHpA35HQk9/ipRNvLtbfHGgVtgbvIP6', 58),
+(59, 'san', '$2y$10$g0qlBVHhFVUeHLgaZoNQredhh8HIIy4ek8w6IC3iSj5mZ/uAjNMLG', 59),
+(60, 'vet', '$2y$10$ZE1pGURgdjHcc/nfrKIik.08HUsMM3cTyvGC5EHkSC8mdWN1jRuqG', 60),
+(61, 'pet', '$2y$10$vXc.nAyfjNoflEO9hk968uT6wYKlb/E3wXe10J2E3hMSOio6202Vy', 61),
+(62, 'success', '$2y$10$fmGib11pFaZDs.vAqL1ZOuGvmap.ebazwBPsktDG7m/DVc8uFk45G', 62);
 
 -- --------------------------------------------------------
 
@@ -115,6 +138,24 @@ INSERT INTO `products` (`pro_id`, `pro_name`, `cat_id`, `sub_cat_id`, `image`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `shipping`
+--
+
+CREATE TABLE `shipping` (
+  `shippingid` int(10) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `mobileno` int(10) NOT NULL,
+  `country` varchar(100) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `postcode` int(10) NOT NULL,
+  `created` datetime NOT NULL,
+  `last_updated` datetime NOT NULL,
+  `UserID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sub_cat`
 --
 
@@ -150,27 +191,33 @@ CREATE TABLE `user` (
   `FirstName` varchar(30) NOT NULL,
   `LastName` varchar(30) NOT NULL,
   `Email` varchar(255) NOT NULL,
-  `Role` enum('User','Admin') NOT NULL DEFAULT 'User'
+  `Role` enum('User','Admin') NOT NULL DEFAULT 'User',
+  `dob` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UserID`, `FirstName`, `LastName`, `Email`, `Role`) VALUES
-(11, 'abc', 'abc', 'abc@abc.com', 'Admin'),
-(12, 'lav', 'lav', 'lav@av.com', 'User'),
-(49, 'jsk', 'jsvnj', 'jsnj', ''),
-(50, '12', 'kmk', 'k@yshoo.com', ''),
-(51, 'peter', 'david', 'peter@david.com', 'User'),
-(52, 'smith', 'john', 'smith@smith.com', 'Admin'),
-(53, 'kjhkhh', '14', 'b@b.com', 'Admin'),
-(54, 'mjbm', 'hjh', 'jhghj', ''),
-(55, 'mmm', 'mmm', 'mmm@yahoo.com', 'User');
+INSERT INTO `user` (`UserID`, `FirstName`, `LastName`, `Email`, `Role`, `dob`) VALUES
+(11, 'abc', 'abc', 'abc@abc.com', 'Admin', '0000-00-00'),
+(12, 'lav', 'lav', 'lav@av.com', 'User', '0000-00-00'),
+(57, 'fly', 'fly', 'fly@fly.com', 'Admin', '0000-00-00'),
+(58, 'flip', 'flip', 'flip@flip.com', 'User', '0000-00-00'),
+(59, 'san', 'san', 'san@san.com', 'User', '0000-00-00'),
+(60, 'vet', 'vet', 'vet@vet.com', 'User', '0000-00-00'),
+(61, 'pet', 'pet', 'pet@pet.com', 'User', '0000-00-00'),
+(62, 'success', 'success', 'success@success.com', 'User', '0000-00-00');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `carts`
+--
+ALTER TABLE `carts`
+  ADD PRIMARY KEY (`cart_id`);
 
 --
 -- Indexes for table `login`
@@ -193,6 +240,12 @@ ALTER TABLE `products`
   ADD KEY `cat_id` (`cat_id`);
 
 --
+-- Indexes for table `shipping`
+--
+ALTER TABLE `shipping`
+  ADD PRIMARY KEY (`shippingid`);
+
+--
 -- Indexes for table `sub_cat`
 --
 ALTER TABLE `sub_cat`
@@ -210,10 +263,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `carts`
+--
+ALTER TABLE `carts`
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `LoginID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `LoginID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `main_cat`
@@ -228,6 +287,12 @@ ALTER TABLE `products`
   MODIFY `pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `shipping`
+--
+ALTER TABLE `shipping`
+  MODIFY `shippingid` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `sub_cat`
 --
 ALTER TABLE `sub_cat`
@@ -237,7 +302,7 @@ ALTER TABLE `sub_cat`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `UserID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- Constraints for dumped tables

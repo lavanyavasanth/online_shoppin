@@ -126,7 +126,7 @@ function cart_display(){
                     <td colspan='3' class='hidden-xs'></td>
                     <td class='hidden-xs text-center'><strong>Net Amount: $net_total </strong></td>
                     <td colspan='2' class='hidden-xs'></td>
-                    <td><a href='#' class='btn btn-success btn-block'>Checkout <i class='fa fa-angle-right'></i></a></td>
+                    <td><a href='../view/shipping.php' class='btn btn-success btn-block'>Checkout <i class='fa fa-angle-right'></i></a></td>
                 </tr>
             </tfoot>
         ";
@@ -280,7 +280,7 @@ function pro_detail(){
             <center>
                <form method = 'post'>
                     <input type = 'hidden' name='pro_id' value='".$row_pro['pro_id']."'>
-                    <button id='buy_now' name = 'buy_now'>Buy Now</button>
+                    
                     <button id='buy_now' name = 'cart_btn'>Add to Cart</button>
                 </form>
             </center>

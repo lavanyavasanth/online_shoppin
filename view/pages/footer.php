@@ -20,6 +20,7 @@
                 <a href="../view/priPolicy.php" style="padding:10px;">Privacy Policy</a>
                 <a href="/online_shopping/downloadfile/MeasurementForm.xlsx" style="padding:10px;">Measurement Form</a>
         </div>
+        
     
     
 <?php
