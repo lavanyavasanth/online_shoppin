@@ -114,6 +114,7 @@
                                     </div>
     -->
 </div> 
+<div><a href="payment.php">proceed to payment</a>
                               
                     
 <?php include("pages/footer.php");?> 

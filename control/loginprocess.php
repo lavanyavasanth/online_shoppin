@@ -7,7 +7,7 @@ if (!empty([$_POST]))
      $password = !empty($_POST['password'])? testUserInput(($_POST['password'])): null;
      try
     {
-        $stmt = $conn->prepare("SELECT Username, Password, Role,FirstName,Lastname,Email FROM login INNER JOIN user ON user.UserID = login.UserID WHERE username = :user");
+        $stmt = $conn->prepare("SELECT Username, Password, Role,FirstName,Lastname,Email, user.UserID FROM login INNER JOIN user ON user.UserID = login.UserID WHERE username = :user");
         $stmt->bindParam(':user', $username);
        
         //$stmt->bindParam(':pass', $password);
@@ -15,7 +15,9 @@ if (!empty([$_POST]))
         $rows = $stmt -> fetch();
         $user = $rows['Username'];
         $pass = $rows['Password'];
+        $email = $rows['Email'];
         $role = $rows['Role'];
+        $UserID = $rows['UserID'];
 //        $firstname = $rows['FirstName'];
 //         $lastname = $rows['Lastname'];
 //         $email = $rows['Email'];
@@ -26,6 +28,7 @@ if (!empty([$_POST]))
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
             $_SESSION['role'] = $role;
+            $_SESSION['UserID'] = $UserID;
 //            $_SESSION['firstname'] = $firstname;
 //            $_SESSION['lastname'] = $lastname;
 //            $_SESSION['email'] = $email;

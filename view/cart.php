@@ -5,7 +5,7 @@
     include("pages/navbar.php");  
 ?>    
 <div class="container">
-	
+	           
                 <?php echo cart_display(); ?>
     </table>
 </div>

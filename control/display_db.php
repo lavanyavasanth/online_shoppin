@@ -1,30 +1,32 @@
 <?php
-function getIp() {
-    $ip = $_SERVER['REMOTE_ADDR'];
- 
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        $ip = $_SERVER['HTTP_CLIENT_IP'];
-    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    }
- 
-    return $ip;
-}
+//function getIp() {
+//    $ip = $_SERVER['REMOTE_ADDR'];
+// 
+//    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+//        $ip = $_SERVER['HTTP_CLIENT_IP'];
+//    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+//        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+//    }
+// 
+//    return $ip;
+//}
 function add_cart(){
     include("../model/db.php");
     if(isset($_POST['cart_btn'])){
         $pro_id = $_POST['pro_id'];
-        $ip = getIp();
-        $check_cart = $conn->prepare("select * from carts where pro_id='$pro_id' AND ip_add='$ip'");
+        if(isset($_SESSION['UserID']))
+        $UserID = $_SESSION['UserID'];
+//        $ip = getIp();
+        $check_cart = $conn->prepare("select * from carts where pro_id='$pro_id' AND UserID='$UserID'");
         $check_cart->execute();
         $row_check = $check_cart->rowCount();
         if($row_check==1){
             echo"<script>alert('Product already added to your cart!!!');</script>";
         }else
         {
-            $add_cart = $conn->prepare("insert into carts(pro_id, quantity,ip_add) values('$pro_id','1','$ip')");
+            $add_cart = $conn->prepare("insert into carts(pro_id, quantity,UserID) values('$pro_id','1','$UserID')");
             $add_cart->bindValue(":pro_id", $pro_id);
-            $add_cart->bindValue(":ip", $ip);
+            $add_cart->bindValue(":UserID", $UserID);
 
             if($add_cart->execute()){
                 echo"<script>window.open('../view/index.php','_self');</script>";
@@ -36,16 +38,20 @@ function add_cart(){
 }
 function cart_count(){
     include("../model/db.php");
-    $ip = getIp();
-    $get_cart_item = $conn->prepare("select * from carts where ip_add='$ip'");
+//    $ip = getIp();
+    if(isset($_SESSION['UserID'])){
+    $UserID = $_SESSION['UserID'];
+    $get_cart_item = $conn->prepare("select * from carts where UserID='$UserID'");
     $get_cart_item->execute();
     $count_cart = $get_cart_item->rowCount();
     echo $count_cart;
 }
+}
 function cart_display(){
     include("../model/db.php");
-    $ip = getIp();
-    $get_cart_item = $conn->prepare("select * from carts where ip_add = '$ip'");
+    if(isset($_SESSION['UserID'])){
+    $UserID = $_SESSION['UserID'];
+    $get_cart_item = $conn->prepare("select * from carts where UserID='$UserID'");
     $get_cart_item->setFetchMode(PDO:: FETCH_ASSOC);
     $get_cart_item->execute();
     $cart_empty = $get_cart_item->rowCount();
@@ -130,6 +136,7 @@ function cart_display(){
                 </tr>
             </tfoot>
         ";
+    }
     }
 }
 function delete_cart_item(){

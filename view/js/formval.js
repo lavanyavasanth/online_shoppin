@@ -29,7 +29,7 @@ function errmsg(){
     }
      if(password.value == ""){
         password.style.border = "1px solid red";
-        msg2.textContent = "Password is required";
+        msg2.textContent = "Password is required with atleast 1 number";
         password.focus();
         return false;
     }

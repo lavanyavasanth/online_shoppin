@@ -17,7 +17,7 @@
                         </div>
                         <div class="form-group">
 							<label for="password">Password</label>
-							<input type="password" id="pname" class="form-control textInput" name="password" placeholder="" autocomplete="off" pattern="[A-Za-z]{1,}[0-9]{1,}">
+							<input type="password" id="pname" class="form-control textInput" name="password" placeholder="" autocomplete="off" pattern="[A-Za-z]{1,}[0-9]{1}">
                             <div id= "msg2" style="color:red; font-weight:bold"></div>
                         </div>
 						<div class="form-group">
