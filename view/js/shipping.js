@@ -1,17 +1,20 @@
 /////**********************************///////////
 //var first = "hello";
 //console.log(first);
-getShipping();
-document.getElementById('editform').addEventListener('submit', AJAXupdateAddress);
-document.getElementById('addform').addEventListener('submit', AJAXaddAddress);
+//getShipping();
 
 function getShipping() {
+    document.getElementById('editform').addEventListener('submit', AJAXupdateAddress);
+    document.getElementById('addform').addEventListener('submit', AJAXaddAddress);
+    
+    console.log("get shipping");
     var shipURL = "../model/webserver.php?getAddress=selAdd";
     $.ajax({
         url: shipURL,
         method: 'get',
         datatype: 'json',
         success: function(res) {
+            console.log(res);
             displayAdd(res);
         },
         error: function(err) {
@@ -25,13 +28,13 @@ function displayAdd(shipArray) {
     outHTML = '';
     for(var loop=0;loop<shipArray.length;loop++) {
         outHTML += '<div class="shiprow">';
-        outHTML += '<span>' + shipArray[loop].address + '</span>';
-         outHTML += '<span>' + shipArray[loop].mobileno + '</span>';
-        outHTML += '<span>' + shipArray[loop].country + '</span>';
-        outHTML += '<span>' + shipArray[loop].city + '</span>';
-        outHTML += '<span>' + shipArray[loop].postcode + '</span>';
-        outHTML += '<span><a href="#" onClick="editShipForm(' + shipArray[loop].shippingid + ')">edit</a></span>&nbsp;';
-        outHTML += '<span><a href="#" onClick="deleteShipForm(' + shipArray[loop].shippingid + ')">del</a></span>';
+        outHTML += '<h5><b>Address: </b><span>' + shipArray[loop].address + '</span></h5>';
+         outHTML += '<h5><b>Mobile No: </b><span>' + shipArray[loop].mobileno + '</span></h5>';
+        outHTML += '<h5><b>Country: </b><span>' + shipArray[loop].country + '</span></h5>';
+        outHTML += '<h5><b>City: </b><span>' + shipArray[loop].city + '</span></h5>';
+        outHTML += '<h5><b>Postcode: </b><span>' + shipArray[loop].postcode + '</span></h5>';
+        outHTML += '<span><a href="#" onClick="editShipForm(' + shipArray[loop].shippingid + ')">Edit</a></span>&nbsp;&nbsp;&nbsp;';
+        outHTML += '<span><a href="#" onClick="deleteShipForm(' + shipArray[loop].shippingid + ')">Delete</a></span>';
         outHTML += '</div>';
     }
     document.getElementById('listAddress').innerHTML = outHTML;

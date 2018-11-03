@@ -5,10 +5,12 @@
     border: 0;
 }
 
+/*
 .row{
-    width: 80%;
-    background-color: beige;
+    width: 120%;
+    background-color: red;
 }
+*/
 .row > #bodyleft{
     background: #fff;
     height: auto;
@@ -466,7 +468,22 @@ div.dropdown-menu.show a{
 	color:#fff;
 	transition: background-color 1.15s ease-in-out,border-color 1.15s ease-in-out,box-shadow 1.15s ease-in-out;
 	
-}	
+}
+/********* reg errmsg*****************/
+.textInput{
+     margin-top: 2px;
+    height: 28px;
+    border: 1px solid #5E6E66;
+    font-size: 16px;
+    padding: 1px;
+    width: 100%;
+}
+/********* reg errmsg*****************/
+    .contents{
+        display: none;
+    }
+    
+   
 @media screen and (max-width: 600px){
     .row #bodyleft{
         width: 100%;
@@ -494,6 +511,7 @@ input[type=text] {
     margin: 8px 0;
     box-sizing: border-box;
 }
+
 /************cart*********************/
 .table>tbody>tr>td, .table>tfoot>tr>td{
     vertical-align: middle;
@@ -530,19 +548,7 @@ input[type=text] {
 	
 }
 /************cart*********************/
-/********* reg errmsg*****************/
-.textInput{
-     margin-top: 2px;
-    height: 28px;
-    border: 1px solid #5E6E66;
-    font-size: 16px;
-    padding: 1px;
-    width: 100%;
-}
-/********* reg errmsg*****************/
-/*
-    .contents{
-        display:none;
-    }
-*/
+
+
+    
 

@@ -3,12 +3,45 @@
     include("pages/header.php");   
     include("pages/navbar.php"); 
 ?>
+<script>
+    $(function(){
+       $("#submitbtn")
+            .after("&nbsp; <input type = 'submit' value = 'Save Form' class= 'btn btn-primary btn-lg' id = 'saveData'>")
+            .after("&nbsp; <input type = 'submit' value = 'Clear Saved Data' class= 'btn btn-primary btn-lg' id = 'clearData'>");
+       $("#saveData")    
+            .click(function(e){
+           e.preventDefault();
+           localStorage.setItem("flag","set");
+          var data = $("#formReg").serializeArray();
+           $.each(data,function(i,obj){
+//              console.log(i,obj);
+               localStorage.setItem(obj.name,obj.value);
+           });
+//           console.log(data);
+       });
+        if(localStorage.getItem("flag") == "set"){
+            $("header").before("<p>This form has saved data</p>");
+            var data = $("#formReg").serializeArray();
+           $.each(data,function(i,obj){
+//              console.log(i,obj);
+               $("[name= '"+ obj.name +"']").val(localStorage.getItem(obj.name));
+           });
+        }
+        $("#clearData")
+            .click(function(e){
+                e.preventDefault();
+                localStorage.setItem("flag","");
+        });
+    });
+
+</script>
+        <header></header>
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-primary">
                 <div class="panel-heading">Thank you for Sign Up!</div>
                 <div class="panel-body">
-                    <form role="Form" method="POST" action="../control/regprocess.php" accept-charset="UTF-8" onsubmit="return errmsg()" name="valform">
+                    <form role="Form" method="POST" id="formReg" action="../control/regprocess.php" accept-charset="UTF-8" onsubmit="return errmsg()" name="valform">
 						<div class="form-group">
 							<label for="username">Username</label>
 							<input type="text" id="uname" class="form-control textInput" name="username" placeholder="" autocomplete="off" pattern="[A-Za-z]{1,}">
@@ -42,7 +75,11 @@
                         </div>
                         <div class="form-group">
 							<label for="verifypass">DOB</label>
-							<input type="text" class="datepicker form-control" name="dob" placeholder="" autocomplete="off">
+				            <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" name="dob" />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            </div>
                         </div>
 						<div class="form-group text-center">
 							<input type="submit" class="btn btn-primary btn-lg" id="submitbtn" name="submit" value="signup">

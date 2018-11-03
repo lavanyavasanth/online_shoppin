@@ -1,8 +1,8 @@
-<!--<div class="container-fluid">-->
-<div class="row" style="width: 100%;">
-    <div class = "col-md-8" id="bodyleft">
+<div class="container">
+<div class="row" >
+    <div class = "col-md-12" id="bodyleft">
         <?php if(!isset($_GET['cat_id'])){ ?>
-        <div id="slider">
+        <div id="slider" >
             <h2>New Arrival</h2>
             <?php
                 $files = scandir("../view/img/slider/");
@@ -25,14 +25,15 @@
             </div>
         </div>
         
-        <ul><?php echo salwar();?></ul><br clear='all'/>;
-        <ul><?php echo lehenga();?></ul><br clear='all'/>;
-        <ul><?php echo saree();?></ul><br clear='all'/>;
-        <ul><?php echo accessories();?></ul><br clear='all'/>;
+        <ul><?php echo salwar();?></ul><br clear='all'/>
+        <ul><?php echo lehenga();?></ul><br clear='all'/>
+        <ul><?php echo saree();?></ul><br clear='all'/>
+        <ul><?php echo accessories();?></ul><br clear='all'/>
         <?php } ?>
         
     </div>
-    <?php include("bodyright.php");?>
+
     
+</div>
 </div>
    

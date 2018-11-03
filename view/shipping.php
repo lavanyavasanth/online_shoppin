@@ -3,11 +3,21 @@
     include("pages/header.php");   
     include("pages/navbar.php"); 
 ?>
+
+
+<div class="container">
 <div class="col-md-12 col-sm-12 col-xs-12" id="listAddress"></div> 
 <div class="col-md-6 col-sm-6 col-xs-12" id="addressForm">
     <h3 class="text-center">Shipping Address</h3>
     <div class="clearfix"></div>
          <hr><form action="#" method="POST" id="addform" novalidate onsubmit="return false">
+<!--
+            <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="form-group">
+        <input type="hidden" id="shipid" name="shipid" class="form-control input-sm">
+    </div>
+        </div>
+-->
 
 
         <!--
@@ -114,7 +124,20 @@
                                     </div>
     -->
 </div> 
-<div><a href="payment.php">proceed to payment</a>
+</div>
+<div><a href="payment.php" style=" display: block; width: 155px; height: 55px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold; margin-left: 45%; margin-top: 5%;">proceed to payment</a>
+</div>
+
+    
+<script>
+    getShipping();
+</script>
                               
                     
 <?php include("pages/footer.php");?> 

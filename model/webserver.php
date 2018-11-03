@@ -1,8 +1,6 @@
 <?php
 header('Content-Type: application/json');
 include("db.php");
-
-
 if(isset($_GET['getAddress'])) {
     if($_GET['getAddress'] == 'oneAddress') {
             $sql = "SELECT * FROM shipping WHERE shippingid = :shipid";
@@ -78,5 +76,4 @@ if(isset($_GET['getAddress'])) {
             }
         }
 }
-
 ?>

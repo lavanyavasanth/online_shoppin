@@ -4,6 +4,19 @@
     include('../control/display_db.php');
 
 ?> 
+<script>
+function save(){
+    var fieldValue = document.getElementById('search_box').value;
+    localStorage.setItem('text',fieldValue);
+}
+function load(){
+    var storedValue = localStorage.getItem('text');
+    if(storedValue){
+        document.getElementById('search_box').value = storedValue;
+    }
+}
+
+</script>
 <div class="container-fluid">
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top" style="font-weight: bolder;">
             <a class="navbar-brand" href="index.php" style="font-weight:bolder; color: #dc3545;">Lavanya's Boutique</a>
@@ -41,10 +54,10 @@
         </ul>
         </div>
         
-        <div id="search">
+        <div id="search"  onload="load()">
             <form method="get" enctype="multipart/form-data" action="../view/search.php">
                 <input type="text" id="search_box" name="user_query" placeholder="search here...">
-                <button name="search" id="search_btn">Search</button>
+                <button name="search" id="search_btn" onclick="save()">Search</button>
             </form>
         </div>
     </nav>
