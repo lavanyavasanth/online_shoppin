@@ -33,12 +33,7 @@
                
                   
             </form><!-- /form -->
-            <a href="#" class="forgot-password">
-                Forgot the password?
-            </a><br>
-            <a href="reg.php" class="forgot-password">
-                Register?
-            </a>
+
         </div><!-- /card-container -->
     </div><!-- /container -->
 

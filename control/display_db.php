@@ -104,7 +104,8 @@ function cart_display(){
                           </td>
                           <td data-th='Price'>".$row_pro['price']."</td>
                           <td data-th='Quantity' class='text-center'>
-                          <input type='text' name ='quantity[".$row['cart_id']."]' class='form-control text-center' value='".$row['quantity']."'><br><input type='submit' name ='up_qty' class='form-control text-center' value='save'>
+                          <input type='text' name ='quantity[".$row['cart_id']."]' class='form-control text-center' value='".$row['quantity']."'><br>
+                          <input type='submit' name ='up_qty' class='form-control text-center' value='save'>
                           </td>
                           <td data-th='Subtotal' class='text-center'>";
                                 $price = $row_pro['price'];

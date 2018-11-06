@@ -1,4 +1,5 @@
 <?php
+echo "session_start()";
     session_start();
     include('../model/function.php');
     include('../control/display_db.php');

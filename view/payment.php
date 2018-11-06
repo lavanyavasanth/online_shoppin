@@ -3,55 +3,6 @@
     include("pages/header.php");   
     include("pages/navbar.php"); 
 ?>
-<style>
-    .modal{
-        position: fixed;
-        z-index: 999;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        background-color: black;
-        filter: alpha(opacity=60);
-        opacity:0.6;        
-    }
-    .center{
-        z-index: 1000;
-        margin: 300px auto;
-        padding: 10px;
-        width: 130px;
-        background-color: black;
-        border-radius: 10px;
-        filter: 1;
-    }
-    .center img{
-        height: 128px;
-        width: 128px;
-    }
-</style>
-
-
-    <div id="loader" class="loadercontainer" align="center" style="display:none;">
-
- <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-   width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-  <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
-    s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
-    c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
-  <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
-    C22.32,8.481,24.301,9.057,26.013,10.047z">
-    <animateTransform attributeType="xml"
-      attributeName="transform"
-      type="rotate"
-      from="0 20 20"
-      to="360 20 20"
-      dur="0.5s"
-      repeatCount="indefinite"/>
-    </path>
-  </svg>
-
-	</div>
-<header></header>
 <div class="container">
   <form class="form-horizontal" role="form" method="post" id="formPay">
     <fieldset id="sectiona" class = "contents">
@@ -60,11 +11,25 @@
         <label class="col-sm-3 control-label" for="card-holder-name">Card Type</label>
         <div class="col-sm-9">
            <div class="col-xs-3">
+<!--
               <select class="form-control" name="expiry-year" id="cardtype">
                 <option value="1">Visa</option>
                 <option value="2">Master</option>
                 <option value="3">American Express</option>
               </select>
+-->
+               
+ 
+        <input id="ex19" type="text"
+              data-provide="slider"
+              data-slider-ticks="[1, 2, 3]"
+              data-slider-ticks-labels='["Visa", "Master", "Amex"]'
+              data-slider-min="1"
+              data-slider-max="3"
+              data-slider-step="1"
+              data-slider-value="3"
+              data-slider-tooltip="hide" />
+
             </div>
         </div>
       </div>
@@ -166,11 +131,34 @@
       
     
   </form>
+<!--
+    <div class="loader" align="center" style="display:none;">
+
+ <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+  <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+    s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+    c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+  <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+    C22.32,8.481,24.301,9.057,26.013,10.047z">
+    <animateTransform attributeType="xml"
+      attributeName="transform"
+      type="rotate"
+      from="0 20 20"
+      to="360 20 20"
+      dur="0.5s"
+      repeatCount="indefinite"/>
+    </path>
+  </svg>
+
+	</div>
+-->
 </div>
 <div id="paypal-button-container" style="text-align:center;"></div>
 <script src="js/loader.js" type="text/javascript"></script>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>
+
 // Render the PayPal button
 paypal.Button.render({
 // Set your environment

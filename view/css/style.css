@@ -482,8 +482,7 @@ div.dropdown-menu.show a{
     .contents{
         display: none;
     }
-    
-   
+
 @media screen and (max-width: 600px){
     .row #bodyleft{
         width: 100%;
