@@ -34,12 +34,14 @@ if (!empty([$_POST]))
 //            $_SESSION['email'] = $email;
             
                 if ($role == "Admin") {
-                        header('location:../view/admin/index.php');
                         $_SESSION['message'] = "login successful";
+                        header('location:../view/admin/index.php');
+                        
                 } 
-                else {              
+                else {    
+                          $_SESSION['message'] = "login successful";
                           header('location:../view/index.php');
-                          $_SESSION['message'] = "login successful";       
+                                 
                 }
 
         } else {

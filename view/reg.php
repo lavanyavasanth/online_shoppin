@@ -75,11 +75,13 @@
                         </div>
                         <div class="form-group">
 							<label for="verifypass">DOB</label>
-				            <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control" name="dob" />
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+<!--				            <div class='input-group date' id='datetimepicker1'>-->
+                            <input type='text' class="form-control" id="datepicker" name="dob" placeholder="" autocomplete="off" />
+<!--                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>-->
+<!--
                             </span>
                             </div>
+-->
                         </div>
 						<div class="form-group text-center">
 							<input type="submit" class="btn btn-primary btn-lg" id="submitbtn" name="submit" value="signup">

@@ -1,6 +1,6 @@
 <?php
-echo "session_start()";
-    session_start();
+echo session_start();
+    
     include('../model/function.php');
     include('../control/display_db.php');
 
@@ -28,6 +28,7 @@ function load(){
         <ul class="nav navbar-nav ml-auto">
 <!--        <li class="nav-item" id="search_btn"><a class="nav-link" href="#"><i class="fas fa-search"></i><strong>Search</strong></a></li>-->
         <?php
+
         if(!userLoggedIn()){
         echo'<li class="nav-item"><a class="nav-link" href="reg.php"><span class="glyphicon glyphicon-arrow-right"></span><strong>Register</strong></a>
         </li>';
