@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 session_start();
+=======
+echo session_start();
+>>>>>>> f6711f6419b693b44a2e104d117b74770bb3ff61
     
     include('../model/function.php');
     include('../control/display_db.php');
