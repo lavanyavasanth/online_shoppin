@@ -29,17 +29,20 @@ if (!empty([$_POST]))
             $_SESSION['password'] = $password;
             $_SESSION['role'] = $role;
             $_SESSION['UserID'] = $UserID;
+            $_SESSION['login'] = true;
 //            $_SESSION['firstname'] = $firstname;
 //            $_SESSION['lastname'] = $lastname;
 //            $_SESSION['email'] = $email;
             
                 if ($role == "Admin") {
-                        header('location:../view/admin/index.php');
                         $_SESSION['message'] = "login successful";
+                        header('location:../view/admin/index.php');
+                        
                 } 
-                else {              
+                else {    
+                          $_SESSION['message'] = "login successful";
                           header('location:../view/index.php');
-                          $_SESSION['message'] = "login successful";       
+                                 
                 }
 
         } else {

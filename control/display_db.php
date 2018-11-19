@@ -17,11 +17,11 @@ function add_cart(){
         if(isset($_SESSION['UserID']))
         $UserID = $_SESSION['UserID'];
 //        $ip = getIp();
-        $check_cart = $conn->prepare("select * from carts where pro_id='$pro_id' AND UserID='$UserID'");
+        $check_cart = $conn->prepare("select cart_id from carts where UserID='$UserID'");
         $check_cart->execute();
         $row_check = $check_cart->rowCount();
-        if($row_check==1){
-            echo"<script>alert('Product already added to your cart!!!');</script>";
+        if($row_check>=3){
+            echo"<script>alert('Cant add more then 3 product!!!');</script>";
         }else
         {
             $add_cart = $conn->prepare("insert into carts(pro_id, quantity,UserID) values('$pro_id','1','$UserID')");
@@ -59,17 +59,17 @@ function cart_display(){
     if($cart_empty == 0){
         echo "<center><h2>Cart is Empty!!!!!</h2></center>";
     }else{
-        if(isset($_POST['up_qty'])){
-            $qty = $_POST['quantity'];
-            foreach($qty as $key=>$value){
-                $update_qty = $conn->prepare("update carts set quantity = '$value' where cart_id = '$key'");
-                $res = $update_qty->execute();
-                echo $res;
+//        if(isset($_POST['up_qty'])){
+//            $qty = $_POST['quantity'];
+//            foreach($qty as $key=>$value){
+//                $update_qty = $conn->prepare("update carts set quantity = '$value' where cart_id = '$key'");
+////                $res = $update_qty->execute();
+////                echo $res;
 //                if($update_qty->execute()){
 //                   echo "<script>window.open('cart.php','_self');</script>"; 
 //                }
-            }
-        }
+//            }
+//        }
         echo"
         <table id='cart' class='table table-hover table-condensed'>
         <thead>
@@ -105,7 +105,7 @@ function cart_display(){
                           <td data-th='Price'>".$row_pro['price']."</td>
                           <td data-th='Quantity' class='text-center'>
                           <input type='text' name ='quantity[".$row['cart_id']."]' class='form-control text-center' value='".$row['quantity']."'><br>
-                          <input type='submit' name ='up_qty' class='form-control text-center' value='save'>
+                          
                           </td>
                           <td data-th='Subtotal' class='text-center'>";
                                 $price = $row_pro['price'];

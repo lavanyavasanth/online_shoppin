@@ -49,10 +49,3 @@ GITHUB URL: https://github.com/lavanyavasanth/online_shoppin
 
 ----------------------------------------------------------------------------
 
-Issues:
-Style the datepicker
-Products cannot be added to shopping cart
-No contact us page & new arrival page
-forgot password, remember me, social media links are empty
-Need to add measurement form for user to fill.
-Need to add table to database

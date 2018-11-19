@@ -38,6 +38,8 @@ svg rect{
 }
     #load{
         display: none;
+        
+        
     }
 </style>
 

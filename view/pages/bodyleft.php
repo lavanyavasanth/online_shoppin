@@ -1,3 +1,5 @@
+<!--<div class="container" style=" height:10%;"><?php echo "<b>Username:</b>".$_SESSION['username']; ?></div>-->
+
 <div class="container">
 <div class="row" >
     <div class = "col-md-12" id="bodyleft">
