@@ -366,8 +366,7 @@ function addUser($firstname, $lastname, $email, $role, $dob, $username, $passwor
     $stmt->bindValue(':email', $email);
  	$stmt->bindValue(':role', $role);
     $stmt->bindValue(':dob', $dob);
- 	$result = $stmt->execute();
-       
+ 	$result = $stmt->execute();     
         
         
     $lastUserid = $conn->lastInsertId();

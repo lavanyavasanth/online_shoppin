@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group">
 							<label for="password">Password</label>
-							<input type="password" id="pname" class="form-control textInput" name="password" placeholder="" autocomplete="off" pattern="[A-Za-z]{1,}[0-9]{1}">
+							<input type="password" id="pname" class="form-control textInput" name="password" placeholder="" autocomplete="off" pattern="[A-Za-z]{1,}[0-9]{1,}">
                             <div id= "msg2" style="color:red; font-weight:bold"></div>
                         </div>
 						<div class="form-group">
@@ -75,11 +75,13 @@
                         </div>
                         <div class="form-group">
 							<label for="verifypass">DOB</label>
-				            <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control" name="dob" />
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+<!--				            <div class='input-group date' id='datetimepicker1'>-->
+                            <input type='text' class="form-control" id="datepicker" name="dob" placeholder="" autocomplete="off" />
+<!--                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>-->
+<!--
                             </span>
                             </div>
+-->
                         </div>
 						<div class="form-group text-center">
 							<input type="submit" class="btn btn-primary btn-lg" id="submitbtn" name="submit" value="signup">
