@@ -29,6 +29,7 @@ if (!empty([$_POST]))
             $_SESSION['password'] = $password;
             $_SESSION['role'] = $role;
             $_SESSION['UserID'] = $UserID;
+            $_SESSION['login'] = true;
 //            $_SESSION['firstname'] = $firstname;
 //            $_SESSION['lastname'] = $lastname;
 //            $_SESSION['email'] = $email;

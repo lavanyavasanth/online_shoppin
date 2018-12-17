@@ -41,5 +41,12 @@
       <script src="../view/js/formval.js" defer></script>
       <script src="../view/js/showhide.js" defer></script>
 <!--      <script src="../view/js/range.js" defer></script>-->
+      <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129144929-1');
+</script>
   </head>
   <body>
