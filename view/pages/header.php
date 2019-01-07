@@ -48,10 +48,14 @@ function load(){
 <!--        <li class="nav-item"><a class="nav-link" href="#"><span class="glyphicon glyphicon-save"></span><strong>Order History</strong></a></li>-->
             
             
-        <li class="nav-item" id="cart_btn"><a id = "cart-popover" class="nav-link" data-placement = "bottom" title="shopping cart" href="../view/cart.php">
-            <span class="glyphicon glyphicon-shopping-cart"></span><strong>Cart </strong>
-            <span class="badge"> <?php echo cart_count(); ?></span>
-            </a></li>
+         <?php
+                if(userLoggedIn()){    
+                    echo'<li class="nav-item" id="cart_btn"><a id = "cart-popover" class="nav-link" data-placement = "bottom" title="shopping cart" href="../view/cart.php">
+                    <span class="glyphicon glyphicon-shopping-cart"></span><strong>Cart </strong>
+                    <span class="badge"> <?php echo cart_count(); ?></span>
+                    </a></li>';
+                }
+             ?>
             
             <?php
             if(userLoggedIn()){
