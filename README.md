@@ -1,8 +1,12 @@
 # online_shopping
-Readme.txt
 _______________________________________________________________________
 Description:
-Lavanya's Boutique provide tailor-made designer dresses stitched as per the measurements. To purchase any product, customer has to register to the website. Size Chart and Measurement form links are at the left bottom of the page, were customers can fill in the form and sends email to us. 
+Lavanya's Boutique provide tailor-made designer dresses stitched as per the measurements. To purchase any product, customer has to register to the website. Size Chart and Measurement form links are at the left bottom of the page, were customers can fill in the form and sends email to us.
+
+This project delivers multiple UI interfaces via single page. The website was build using JavaScript, 
+PHP, JQuery, AJAX, Bootstrap and other programming languages to build the user interface and the 
+database integrated with the website. Some of the features realized on this website: slider, 
+submenu, search, filter and animation.
 
 Business Rules: 
 •	Before purchasing any product, customer has to register to the website. 
